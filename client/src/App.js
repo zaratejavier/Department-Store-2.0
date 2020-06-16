@@ -5,14 +5,14 @@ import {Switch, Route} from "react-router-dom"
 import Home from './components/Home'
 import Departments from './components/Departments'
 import NoMatch from './components/NoMatch'
-import NavBar from './components/NavBar'
+// import NavBar from './components/NavBar'
 
 
 
 function App() {
   return (
     <div>
-      <NavBar />
+      {/* <NavBar /> */}
       <Container>
         <Switch>
           <Route exact path="/" component={Home}/>
