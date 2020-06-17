@@ -1,11 +1,21 @@
 class Api::DepartmentsController < ApplicationController
-  before_action :set_deparment, only: [:show, :update, :destroy]
+  before_action :set_department, only: [:show, :update, :destroy]
 
   def index
-    render json: Deparment.all
+    render json: Department.all
   end
 
   def show
+  end
+
+  def create
+    deparment = Department.new(deparment_params)
+
+    if deparment.save
+      render json: deparment
+    else
+      render json: deparment.errors, status: 422
+    end
   end
 
   def update
@@ -15,7 +25,7 @@ class Api::DepartmentsController < ApplicationController
   end
 
   private 
-  def set_deparment
-   @deparment = Deparment.find(params[:id])
+  def set_department
+   @deparment = Department.find(params[:id])
   end
 end
