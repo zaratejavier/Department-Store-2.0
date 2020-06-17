@@ -3,8 +3,7 @@ import axios from "axios"
 import {Card, Button, Icon} from "semantic-ui-react"
 // import {Link} from "react-router-dom"
 import DepartmentsForm from "./DepartmentsForm"
-
-
+import Items from "./Items"
 
 
 const Departments = (props) => {
@@ -63,6 +62,15 @@ const Departments = (props) => {
       >
         <Icon name= "pencil alternate"/>
       </Button>
+
+      <Button
+        icon
+        color="grey"
+        size="tiny"
+        // onClick={() => updateMenu(id)}
+      >
+        <Icon name= "th icon"/>
+      </Button>
       </Card>
     ))
   }
@@ -72,6 +80,7 @@ const Departments = (props) => {
       <DepartmentsForm add={addDepartment}/>
       <h1>Departments</h1>
       <Card.Group>{renderDepartments()}</Card.Group>
+      <Items/>
     </div>
   )
 }
