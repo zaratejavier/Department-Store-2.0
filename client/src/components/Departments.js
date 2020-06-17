@@ -24,7 +24,7 @@ const Departments = (props) => {
   },[])
 
   const addDepartment = (department) => {
-    setDepartments([department], ...departments)
+    setDepartments([department, ...departments])
   }
 
   function deleteDepart(id){
