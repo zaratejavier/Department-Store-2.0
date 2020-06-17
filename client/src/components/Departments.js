@@ -41,6 +41,7 @@ const Departments = (props) => {
   const renderDepartments = () =>{
     if(departments.length <= 0) return <h2>No Departments..</h2>
     return departments.map ((department) => (
+      <div>
       <Card key={department.id}>
         <Card.Content>
           <Card.Header>{department.name}</Card.Header>
@@ -72,6 +73,9 @@ const Departments = (props) => {
         <Icon name= "th icon"/>
       </Button>
       </Card>
+
+      <Items departmentId={department.id}/>
+      </div>
     ))
   }
 
@@ -80,7 +84,6 @@ const Departments = (props) => {
       <DepartmentsForm add={addDepartment}/>
       <h1>Departments</h1>
       <Card.Group>{renderDepartments()}</Card.Group>
-      <Items/>
     </div>
   )
 }
