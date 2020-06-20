@@ -4,7 +4,7 @@ class Api::ItemsController < ApplicationController
 
   def index
     render json: @department.items
-  end
+  end                                                                                                                
 
   def show
   end

@@ -9,27 +9,27 @@ class Api::DepartmentsController < ApplicationController
     render json: @department
   end
 
-  def create
-    department = Department.new(department_params)
+  # def create
+  #   department = Department.new(department_params)
 
-    if department.save
-      render json: department
-    else
-      render json: department.errors, status: 422
-    end
-  end
+  #   if department.save
+  #     render json: department
+  #   else
+  #     render json: department.errors, status: 422
+  #   end
+  # end
 
-  def update
-    if @department.update(department_params)
-      render json: @department
-    else
-      render json: @department.errors, status: 422
-    end
-  end
+  # def update
+  #   if @department.update(department_params)
+  #     render json: @department
+  #   else
+  #     render json: @department.errors, status: 422
+  #   end
+  # end
 
-  def destroy
-    render json: @department.destroy
-  end
+  # def destroy
+  #   render json: @department.destroy
+  # end
 
   private 
   def set_department
