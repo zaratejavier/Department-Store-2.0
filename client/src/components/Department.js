@@ -1,5 +1,6 @@
 import React,{useState, useEffect} from "react"
 import Axios from "axios"
+import { Card } from "semantic-ui-react"
 
 
 function Department(props) {
@@ -22,18 +23,22 @@ function Department(props) {
 
   function renderItems(){
     return items.map((i)  => (
-      <div>
-        <h1>{i.name}</h1>
-        <p>{i.description}</p>
-        <p>Price: ${i.price}</p>
-      </div>
+      <Card>
+        <Card.Content>
+          <h1>{i.name}</h1>
+          <Card.Meta>
+          <p>{i.description}</p>
+          </Card.Meta>
+          <p>Price: ${i.price}</p>
+        </Card.Content>
+      </Card>
     ))
   }
 
   return(
     <div>
       <h1>{department.name}</h1>
-      {props.match.params.id}
+      {/* {props.match.params.id}  */}
       <div onClick={props.history.goBack}>Back</div>
       {renderItems()}
     </div>

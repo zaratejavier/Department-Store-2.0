@@ -43,10 +43,7 @@ const Departments = (props) => {
     if(departments.length <= 0) return <h2>No Departments..</h2>
     return departments.map ((department) => (
       <Card>
-        <Card.Content style={{
-          marginBottom: "10px",
-          padding: "100px",
-          }}>
+        <Card.Content style={cardStyle}>
           <Link to={`/departments/${department.id}`} key={department.id}>
             {department.name}
           </Link>
@@ -58,10 +55,21 @@ const Departments = (props) => {
   return (
     <div>
       {/* <DepartmentsForm add={addDepartment}/> */}
-      <h1>Departments</h1>
+      <h1 style={{
+          textAlign:"center"
+          }}>Departments</h1>
       <Card.Group>{renderDepartments()}</Card.Group>
     </div>
   )
+}
+
+const cardStyle = {
+  padding: "60px",
+  fontSize: "20px",
+  textAlign: "center",
+  backgroundColor: "#e0dede",
+  display: "flex",
+  justifyContent: "center"
 }
 
 export default Departments
