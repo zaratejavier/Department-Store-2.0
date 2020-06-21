@@ -16,6 +16,8 @@ class Api::ItemsController < ApplicationController
   end
 
   def destroy
+    item = Item.find(params[:id]).destroy
+    render json: item
   end
 
   private
@@ -24,3 +26,4 @@ class Api::ItemsController < ApplicationController
     @department = Department.find(params[:department_id])
    end
 end
+
