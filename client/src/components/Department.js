@@ -1,6 +1,7 @@
 import React,{useState, useEffect} from "react"
 import Axios from "axios"
-import { Card, Button } from "semantic-ui-react"
+import ItemForm from "./ItemForm"
+import { Card, Button, Item } from "semantic-ui-react"
 
 
 function Department(props) {
@@ -24,6 +25,16 @@ function Department(props) {
    async function deleteItem(id){
     console.log(id)
     const res =  Axios.delete(`/api/departments/${department.id}/items/${id}`) //deparment.id we get from the state and id we get from the id passed in
+    const filteredItems = items.filter((i) => i.id != res.data.id) //if the state id does not equal the database id
+    setItems(filteredItems) //updates the state witout the deleted item
+  }
+
+  function handleAdd(itemObj){
+    setItems([itemObj, ...items])
+  }
+
+  function handleEdit(){
+
   }
 
   function renderItems(){
@@ -37,6 +48,7 @@ function Department(props) {
           <p>Price: ${i.price}</p>
         </Card.Content>
         <Button onClick={() => deleteItem(i.id)}>Delete</Button>
+        <ItemForm deId={department.id} edit={handleEdit} {...i}/>
       </Card>
     ))
   }
@@ -44,6 +56,7 @@ function Department(props) {
   return(
     <div>
       <h1>{department.name}</h1>
+      <ItemForm deId={department.id} add={handleAdd} />
       {/* {props.match.params.id}  */}
       <div onClick={props.history.goBack}>Back</div>
       {renderItems()}
